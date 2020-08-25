@@ -1,8 +1,16 @@
 import React from 'react'
 import TodoItem from './TodoItem'
-export default function TodoList(props){
-    const todos=props.data.map(item=> <TodoItem title={item.title} hapus={()=>props.remove(item.id)}/>)
+export default function TodoList(props) {
+    const todos = props.data.map(item =>
+        <TodoItem
+            key={item.id}
+            name={item.name}
+            message={item.message}
+            sent={item.sent}
+            resend={()=>props.resend(item.id,item.name,item.message)}
+            hapus={() => props.remove(item.id)}
+        />)
     return (
-     <ol>{todos}</ol>
+        <ul>{todos}</ul>
     )
 }

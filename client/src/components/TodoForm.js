@@ -3,20 +3,25 @@ import React from 'react'
 export default class TodoForm extends React.Component {
     constructor(props) {
       super(props);
-      this.state = {value: ''};
+      this.state = {name:'',message:''};
   
-      this.handleChange = this.handleChange.bind(this);
+      this.handleChangeName = this.handleChangeName.bind(this);
+      this.handleChangeMessage = this.handleChangeMessage.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
     }
   
-    handleChange(event) {
-      this.setState({value: event.target.value});
+    handleChangeName(event) {
+      this.setState({name: event.target.value});
+    }
+
+    handleChangeMessage(event) {
+      this.setState({message: event.target.value});
     }
   
     handleSubmit(event) {
       event.preventDefault();
-      this.props.add( this.state.value);
-      this.setState( {value:""}
+      this.props.add( this.state.name,this.state.message);
+      this.setState( {name:"",message:""}
         );
     }
   
@@ -24,8 +29,12 @@ export default class TodoForm extends React.Component {
       return (
         <form onSubmit={this.handleSubmit}>
           <label>
-            Title:
-            <input type="text" value={this.state.value} onChange={this.handleChange} />
+            Name:
+            <input type="text" value={this.state.name} onChange={this.handleChangeName} />
+          </label>
+          <label>
+            Message:
+            <input type="text" value={this.state.message} onChange={this.handleChangeMessage} />
           </label>
           <input type="submit" value="Submit" />
         </form>
