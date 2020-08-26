@@ -1,8 +1,8 @@
 import React from 'react'
-import TodoItem from './TodoItem'
-export default function TodoList(props) {
-    const todos = props.data.map(item =>
-        <TodoItem
+import ChatItem from './ChatItem'
+export default function ChatList(props) {
+    const chats = props.data.map(item =>
+        <ChatItem
             key={item.id}
             name={item.name}
             message={item.message}
@@ -11,6 +11,6 @@ export default function TodoList(props) {
             hapus={() => props.remove(item.id)}
         />)
     return (
-        <ul>{todos}</ul>
+        <ul>{chats}</ul>
     )
 }

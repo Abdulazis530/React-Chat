@@ -1,13 +1,89 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #4D426D
+
 }
 
+
+
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
+}
+
+h1{
+    text-align: center;
+    color: #EFA985;
+    font-size: 4rem;
+    font-family: 'ubuntu', 'Arial Narrow', Arial, sans-serif;
+}
+
+.chatBox {
+    margin-top: 20px;
+    margin-bottom: 50px;
+    width: 1200px;
+    height: 670px;
+    left: 365px;
+    top: 57px;
+    background-color: #4D426D;
+    border-radius: 20px;
+    border: #4D426D solid ;
+    
+}
+
+.header {
+    margin-top: 40px;
+    background-color: #a69fb9;
+    height: 50px;
+    width: 95%;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0px;
+    margin-left: 2.5%;
+    border-radius: 30px 30px 0 0;
+}
+
+.whiteBox {
+    height: 60%;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    background-color: #DAD2F1;
+    overflow: auto;
+
+}
+
+.inputForm {
+    padding: 25px;
+    background-color: #a69fb9;
+    width: 95%;
+    margin-left: 2.5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 0 30px 30px;
+   
+
+}
+
+.inputName {
+    width: 100%;
+    border-radius: 30px;
+    margin-top:5px
+}
+.btn-custom{
+    border-radius:90%;
+    width:80px;
+    height:80px;
+    background-color: #3CC6B7;
+    border:none;
+    margin-left:30px
 }
