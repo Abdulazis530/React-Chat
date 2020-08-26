@@ -8,8 +8,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #4D426D
-
+    /* background-color: #4D426D */
+    background: #ee9ca7;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ee9ca7, #ffdde1);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ee9ca7, #ffdde1);
 }
 
 
@@ -19,28 +23,32 @@ code {
         monospace;
 }
 
-h1{
+h1 {
     text-align: center;
-    color: #EFA985;
+    color: #ffdde1;
     font-size: 4rem;
     font-family: 'ubuntu', 'Arial Narrow', Arial, sans-serif;
+}
+
+span {
+    color: #3CC6B7;
 }
 
 .chatBox {
     margin-top: 20px;
     margin-bottom: 50px;
     width: 1200px;
-    height: 670px;
+    height: 650px;
     left: 365px;
     top: 57px;
     background-color: #4D426D;
     border-radius: 20px;
-    border: #4D426D solid ;
-    
+    border: #4D426D solid;
+
 }
 
 .header {
-    margin-top: 40px;
+    margin-top: 20px;
     background-color: #a69fb9;
     height: 50px;
     width: 95%;
@@ -52,7 +60,7 @@ h1{
 }
 
 .whiteBox {
-    height: 60%;
+    height: 50%;
     justify-content: center;
     align-items: center;
     width: 95%;
@@ -70,20 +78,21 @@ h1{
     justify-content: center;
     align-items: center;
     border-radius: 0 0 30px 30px;
-   
+
 
 }
 
 .inputName {
     width: 100%;
     border-radius: 30px;
-    margin-top:5px
+    margin-top: 5px
 }
-.btn-custom{
-    border-radius:90%;
-    width:80px;
-    height:80px;
+
+.btn-custom {
+    border-radius: 90%;
+    width: 80px;
+    height: 80px;
     background-color: #3CC6B7;
-    border:none;
-    margin-left:30px
+    border: none;
+    margin-left: 30px
 }

@@ -92,12 +92,12 @@ export default class ChatBox extends React.Component {
     }
     render() {
         return (
-           
+
             <div className='chatBox container-fluid'>
-             <h1> REACT CHAT. </h1>
+                <h1> REACT <span>CHAT.</span> </h1>
                 <div className='row header'>
                     <div className="col-sm">
-                        
+
                     </div>
                 </div>
                 <div className='whiteBox container'>
@@ -107,7 +107,7 @@ export default class ChatBox extends React.Component {
                 </div>
                 <div className='row'>
                     <div className='col-sm'>
-                        <ChatForm add={this.addChat}  />
+                        <ChatForm add={this.addChat} />
                     </div>
 
                 </div>
