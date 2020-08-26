@@ -1,13 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-// import App from './App';
 import TodoBox from './components/TodoBox'
-// import Clock from './components/Clock'
 import * as serviceWorker from './serviceWorker';
+const ReactMarkdown = require('react-markdown')
+
+
 
 ReactDOM.render(
   <React.StrictMode>
+
     <TodoBox />
   </React.StrictMode>,
   document.getElementById('root')
