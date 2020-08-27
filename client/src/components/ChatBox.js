@@ -4,6 +4,7 @@ import ChatList from './ChatList'
 import axios from 'axios'
 import moment from 'moment'
 import io from 'socket.io-client'
+import Swal from 'sweetalert2';
 
 const socket = io("http://localhost:3001");
 
@@ -35,14 +36,14 @@ export default class ChatBox extends React.Component {
             .catch(err => {
                 console.log(err)
             })
-       
-        socket.on('newChat',  (data)=> {
+
+        socket.on('newChat', (data) => {
             const time = moment().format('h:mm a')
             this.setState((state, props) => ({
-                data: [...state.data, { ...data,time, sent: true }]
+                data: [...state.data, { ...data, time, sent: true }]
             }))
         })
-        socket.on('delete-frontEnd', (id)=> {
+        socket.on('delete-frontEnd', (id) => {
             console.log(id)
             this.setState((state, props) => ({
                 data: state.data.filter(item => {
@@ -90,18 +91,37 @@ export default class ChatBox extends React.Component {
             })
     }
     removeChat(id) {
-        this.setState((state, props) => ({
-            data: state.data.filter(item => item.id !== id)
-        }))
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "This message will be deleted !",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#08db93',
+            confirmButtonText: 'Yes, delete it!',
+            cancelButtonText: 'No!',
+        }).then(result => {
+            if (result.value) {
+                this.setState((state, props) => ({
+                    data: state.data.filter(item => item.id !== id)
+                }))
 
-        socket.emit('delete-backEnd', {
-            id
-         })
-        request.delete(`chats/${id}`).then(data => {
-
-        }).catch(err => {
-            console.log(err)
+                socket.emit('delete-backEnd', {
+                    id
+                })
+                request.delete(`chats/${id}`).then(data => {
+                    Swal.fire({
+                        type: 'success',
+                        title: 'chat has been deleted',
+                        showConfirmationButton: false,
+                        
+                     })
+                }).catch(err => {
+                    console.log(err)
+                })
+            }
         })
+
     }
     resendChat(id, name, message) {
         request.post('chats', {
