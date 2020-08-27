@@ -13,7 +13,7 @@ router.get('/', async (req, res, next) => {
       name: field.name,
       message: field.message,
       date: moment(field.createdAt).format("YYYY-MM-DD"),
-      time: moment(field.createdAt).format('HH:mm:ss')
+      time: moment(field.createdAt).format('h:mm a')
     }))
     res.json(data)
   } catch (error) {

@@ -44,17 +44,12 @@ export default class ChatForm extends React.Component {
           </div>
             </div>
             <div className='col-sm'>
-              <button type="submit" value="Send" className='btn btn-success btn-custom'  > <i class="fas fa-paper-plane fa-2x"></i> </button>
+              <button type="submit" value="Send" className='btn btn-success btn-custom'  > <i className="fas fa-paper-plane fa-2x"></i> </button>
             </div>
 
           </div>
        
         </div>
-
-
-
-
-
       </form>
     );
   }

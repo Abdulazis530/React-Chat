@@ -2,7 +2,10 @@ import React from 'react'
 import ChatForm from './ChatForm'
 import ChatList from './ChatList'
 import axios from 'axios'
+import moment from 'moment'
+import io from 'socket.io-client'
 
+const socket = io("http://localhost:3001");
 
 const request = axios.create({
     baseURL: 'http://localhost:3001/api/',
@@ -26,22 +29,50 @@ export default class ChatBox extends React.Component {
                 item.sent = true
                 return item
             })
-
+            console.log(completeData)
             this.setState({ data: completeData })
         })
             .catch(err => {
                 console.log(err)
             })
+       
+        socket.on('newChat',  (data)=> {
+            const time = moment().format('h:mm a')
+            this.setState((state, props) => ({
+                data: [...state.data, { ...data,time, sent: true }]
+            }))
+        })
+        socket.on('delete-frontEnd', (id)=> {
+            console.log(id)
+            this.setState((state, props) => ({
+                data: state.data.filter(item => {
+                    return item.id !== id.id
+                })
+            }))
+        })
+
+
     }
     addChat(name, message) {
+
         const id = Date.now()
+
+        const time = moment().format('h:mm a')
+
+
         this.setState((state, props) => ({
-            data: [...state.data, { id, message, name, sent: true }]
+            data: [...state.data, { id, message, name, time, sent: true }]
         }))
-        request.post('chats', {
+        console.log(socket)
+        socket.emit('newChat', {
             id,
             name,
             message
+        })
+        request.post('chats', {
+            id,
+            name,
+            message,
         })
             .then(data =>
                 console.log(data)
@@ -62,8 +93,12 @@ export default class ChatBox extends React.Component {
         this.setState((state, props) => ({
             data: state.data.filter(item => item.id !== id)
         }))
+
+        socket.emit('delete-backEnd', {
+            id
+         })
         request.delete(`chats/${id}`).then(data => {
-            console.log(data);
+
         }).catch(err => {
             console.log(err)
         })
@@ -75,7 +110,7 @@ export default class ChatBox extends React.Component {
             message
         })
             .then(data => {
-                console.log(data)
+
                 this.setState((state, props) => ({
                     data: state.data.map(item => {
                         if (item.id === id) {
@@ -100,7 +135,7 @@ export default class ChatBox extends React.Component {
 
                     </div>
                 </div>
-                <div className='whiteBox container'>
+                <div className='whiteBox container '>
                     <div className='col-sm'>
                         <ChatList data={this.state.data} remove={this.removeChat} resend={this.resendChat} />
                     </div>

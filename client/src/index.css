@@ -96,3 +96,142 @@ span {
     border: none;
     margin-left: 30px
 }
+
+ul {
+    list-style: none;
+    padding-left: 0
+}
+
+
+.talk-bubble {
+    margin: 10px;
+    display: inline-block;
+    position: relative;
+    width: 200px;
+    height: auto;
+    background-color: lightyellow;
+    word-break: break-all;
+
+
+}
+
+.msg_cotainer {
+    margin-left: 10px;
+    border-radius: 25px;
+    background-color: #82ccdd;
+    padding: 10px;
+    position: relative;
+    word-break: break-all;
+    padding: 0% 2%;
+
+
+}
+
+.msg_time {
+    color: black;
+    font-size: 10px;
+    margin-left: 30%;
+    padding-right: 15px
+}
+
+.col-msg-time {
+    padding-left: 0px;
+    padding-right: 0px;
+
+}
+
+.tri-right.border.left-top:before {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: -40px;
+    right: auto;
+    top: -8px;
+    bottom: auto;
+    border: 32px solid;
+    border-color: #666 transparent transparent transparent;
+}
+
+.tri-right.left-top:after {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: -20px;
+    right: auto;
+    top: 0px;
+    bottom: auto;
+    border: 22px solid;
+    border-color: #82ccdd transparent transparent transparent;
+}
+
+.talktext {
+    padding: 5% 5%;
+    text-align: left;
+    line-height: 1.5em;
+    flex: auto;
+
+}
+
+p {
+    /* remove webkit p margins */
+    padding: 10px 0;
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+}
+
+.icon-text {
+    width: 50px;
+    height: 50px;
+    background-color: chocolate;
+    margin: auto 0;
+    border-radius: 100%;
+    text-align: center;
+    vertical-align: center;
+    margin-top: 50%;
+}
+
+.nameUser {
+    margin-left: 2%;
+    padding-bottom: 0px;
+    margin-bottom :0px
+}
+
+.btn {
+    padding: 0px
+}
+
+.cg-cl-del {
+    color: red;
+}
+
+@keyframes spinner {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.spinner:before {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    margin-left: -10px;
+    border-radius: 50%;
+    border-top: 2px solid #07d;
+    border-right: 2px solid transparent;
+    animation: spinner .6s linear infinite;
+}
+
+.p-resend {
+    color: red;
+    font-size: 10px;
+    padding-right: 15px;
+    padding-top: 0px;
+    padding-bottom: 0px
+}
